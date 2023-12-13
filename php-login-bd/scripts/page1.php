@@ -3,7 +3,7 @@ require_once __DIR__ . '/../inc/navbar.php';
 ?>
 
 <div class="container mt-5">
-    <h4>HOME</h4>
+    <h4>PAGE 1</h4>
     <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit modi dolor ab, magni a veritatis veniam! Fuga expedita labore consectetur optio inventore. Minus molestias placeat tenetur nemo consequuntur, doloremque nihil?
     Officiis odio sequi voluptatibus deleniti est corrupti aliquid odit alias error impedit amet molestiae temporibus doloribus laborum magni dolorem, iste ipsa ipsam eveniet totam, itaque consequatur. In quas tenetur itaque?
     Nisi atque eaque omnis non ipsum, voluptatem eveniet molestiae cum vitae temporibus, nihil doloribus, expedita eum aperiam magnam rem commodi recusandae repellendus. Quidem soluta ea quos autem maiores quisquam vitae!

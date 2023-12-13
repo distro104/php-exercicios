@@ -1,42 +1,64 @@
 <?php
 
-// Inicio da sessao
+// INICIO DA SESSAO
 session_start();
 
-// Rotas permitidas
+// ROTAS PERMITIDAS
 $rotas_permitidas = require_once __DIR__ . "/../inc/rotas.php";
 
 // Definicao das rotas
 $rota = $_GET['rota'] ?? 'home';
 
-// Verifica se o usuario esta logado
-if(!isset($_SESSION['usuario'])) {
+// VERIFICA SE O USUARIO
+if (!isset($_SESSION['user']) && $rota <> "login_submit") {
     $rota = 'login';
 }
 
-// Caso o usuario ja esteja logado e tenta entrar no login
-if(isset($_SESSION['usuario']) && $rota == 'login') {
+// CASO A ROTA ESTEJA COMO LOGOUT DESTROI A SESSAO E VAI PARA LOGIN
+if ($rota == 'logout') {
+    unset($_SESSION['user']);
+    $rota = 'login';
+}
+
+// CASO O USUARIO ESTEJA LOGADO E TENTA UTILIZAR O LOGIN
+if (isset($_SESSION['user']) && $rota == 'login') {
     $rota = 'home';
 }
 
-// caso a rota nao exista
+// CASO A ROTA NAO EXISTA
 if (!in_array($rota, $rotas_permitidas)) {
     $rota = '404';
 }
 
-// Preparacao da pagina
+// PREPARA A PAGINA
 $script = null;
 switch ($rota) {
     case '404':
         $script = '404.php';
         break;
-        
+
     case 'login':
         $script = 'login.php';
         break;
 
+    case 'login_submit':
+        $script = 'login_submit.php';
+        break;
+
     case 'home':
         $script = 'home.php';
+        break;
+
+    case 'page1':
+        $script = 'page1.php';
+        break;
+
+    case 'page2':
+        $script = 'page2.php';
+        break;
+
+    case 'page3':
+        $script = 'page3.php';
         break;
 }
 
@@ -44,16 +66,7 @@ switch ($rota) {
 require_once __DIR__ . '/../inc/config.php';
 require_once __DIR__ . '/../inc/database.php';
 
-//TESTE
-//phpinfo();
-$db = new database();
-$usuarios = $db->query('SELECT * FROM USUARIOS');
-echo '<pre>';
-print_r($usuarios);
-echo '</pre>';
-die();
-
-// apresentacao da pagina
+// APRESENTACAO DA PAGINA
 require_once __DIR__ . '/../inc/header.php';
 require_once __DIR__ . "/../scripts/{$script}";
 require_once __DIR__ . '/../inc/footer.php';
