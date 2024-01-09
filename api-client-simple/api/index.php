@@ -1,13 +1,8 @@
 <?php
 
-
 // VERIFICA SE HA DADO NA REQUISICAO
 $request = $_REQUEST;
-if (!isset($request['param'])) {
-    die("1");
-}
 
-$method = $_SERVER['REQUEST_METHOD'];
 $data = [];
 
 switch ($request['param']) {
@@ -23,7 +18,7 @@ switch ($request['param']) {
 // MOSTRA O RESULTADO DA BUSCA.
 response($data);
 
-// CONSTRUCAO DA RESONSE
+// CONSTRUCAO DA RESPONSE
 function response($data_response)
 {
     header("Content-Type:application/json");
