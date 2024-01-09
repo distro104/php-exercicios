@@ -5,7 +5,9 @@ define('API_BASE','http://localhost/php-exercicios/api-client-simple/api/?param=
 echo '<h3>APLICACAO<h3><hr />';
 
 $resultado = api_request();
-var_dump($resultado);
+echo '<pre>';
+print_r($resultado);
+echo '</pre>';
 
 function api_request()
 {
@@ -17,5 +19,5 @@ function api_request()
 
     curl_close($client);
 
-    return $response;
+    return json_decode($response);
 }
