@@ -1,22 +1,34 @@
 <?php
 
-// VERIFICA SE HA DADO NA REQUISICAO
-$request = $_REQUEST;
+$request = $_GET['param'];
+$data['status'] = "ERROR";
+$data['data'] = null;
 
-$data = [];
-
-switch ($request['param']) {
+switch ($request) {
     case 'status':
-        $data['status'] = "SUCCESS!";
-        $data['data'] = "API RUNING OK...";
+        define_response($data, 'API RUNING OK!...');
         break;
-    default:
-        $data['status'] = "ERROR...";
+
+    case 'getnumber':
+        define_response($data, 'THE NUNBER IS!...');
         break;
 }
 
 // MOSTRA O RESULTADO DA BUSCA.
 response($data);
+
+function geraRand(int $qtd = 1)
+{
+    $result = [];
+    
+}
+
+//
+function define_response(&$data, $value)
+{
+    $data['status'] = 'SUCCESS!';
+    $data['data'] = $value;
+}
 
 // CONSTRUCAO DA RESPONSE
 function response($data_response)
