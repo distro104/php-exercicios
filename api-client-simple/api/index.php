@@ -10,7 +10,7 @@ switch ($request) {
         break;
 
     case 'getnumber':
-        define_response($data, 'THE NUNBER IS!...');
+        define_response($data, get_random_number());
         break;
 }
 
@@ -35,4 +35,15 @@ function response($data_response)
 {
     header("Content-Type:application/json");
     echo json_encode($data_response);
+}
+
+function get_random_number($value = 10)
+{
+    $number = [];
+    array_push($number, "GERANDO VALORES ALEATORIOS!!");
+    for ($i=0; $i < $value; $i++) {
+        array_push($number, rand(1, 100));
+    }
+    array_push($number, "FINALIZADO!!!");
+    return $number;
 }

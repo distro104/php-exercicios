@@ -1,6 +1,6 @@
 <?php
 
-define('API_BASE','http://localhost/php-exercicios/api-client-simple/api/?param=status');
+define('API_BASE','http://localhost/php-exercicios/api-client-simple/api/?param=getnumber');
 
 echo '<h3>APLICACAO<h3><hr />';
 
@@ -24,5 +24,6 @@ function api_request()
 
     curl_close($client);
 
-    return json_decode($response);
+    // return json_decode($response);
+    return $response;
 }
