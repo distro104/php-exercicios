@@ -5,7 +5,7 @@ define('API_BASE_URL','http://localhost/php-exercicios/api-client-simple/api/?re
 echo '<h3>APLICACAO<h3><hr />';
 
 $resultado = api_data_request();
-var_dump($resultado);die();
+
 if($resultado['status']=='ERROR'){ die('Ocorreu um erro'); }
 
 echo '<pre>';
