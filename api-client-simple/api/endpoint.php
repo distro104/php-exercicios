@@ -31,7 +31,7 @@ function get_data_status_api()
 // ------------------------------------------------------------------------------------
 function get_random_number($data_request)
 {
-    if (!isset($data_request['min']) ||  !isset($data_request['max'])) {
+    if (!isset($data_request['min']) || !isset($data_request['max'])) {
         $result = get_fail_result();
         return $result;
     }
