@@ -1,5 +1,8 @@
 <?php
 
+// user: api-client-simple-access
+// pass: *EW/Iod25nB3[4[7
+
 use LDAP\Result;
 
 require_once('./function.php');
