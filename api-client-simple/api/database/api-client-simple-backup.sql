@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 19, 2024 at 03:50 AM
+-- Generation Time: Jan 19, 2024 at 09:02 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `api-client-simple`
 --
+CREATE DATABASE IF NOT EXISTS `api-client-simple` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `api-client-simple`;
 
 -- --------------------------------------------------------
 
@@ -27,13 +29,15 @@ SET time_zone = "+00:00";
 -- Table structure for table `API-PRODUCT`
 --
 
-CREATE TABLE `API-PRODUCT` (
-  `ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `API-PRODUCT`;
+CREATE TABLE IF NOT EXISTS `API-PRODUCT` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `PRODUCT` varchar(50) NOT NULL,
   `QUANTITY` int(11) NOT NULL DEFAULT 0,
   `CREATED_AT` datetime NOT NULL DEFAULT current_timestamp(),
   `UPDATED_AT` datetime DEFAULT NULL,
-  `DELETED_AT` datetime DEFAULT NULL
+  `DELETED_AT` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -42,47 +46,17 @@ CREATE TABLE `API-PRODUCT` (
 -- Table structure for table `API-USER`
 --
 
-CREATE TABLE `API-USER` (
-  `ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `API-USER`;
+CREATE TABLE IF NOT EXISTS `API-USER` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `FULLNAME` varchar(50) NOT NULL,
   `EMAIL` varchar(50) NOT NULL,
   `PHONE` varchar(20) NOT NULL,
   `CREATED_AT` datetime NOT NULL DEFAULT current_timestamp(),
   `UPDATED_AT` datetime DEFAULT NULL,
-  `DELETED_AT` datetime DEFAULT NULL
+  `DELETED_AT` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `API-PRODUCT`
---
-ALTER TABLE `API-PRODUCT`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `API-USER`
---
-ALTER TABLE `API-USER`
-  ADD PRIMARY KEY (`ID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `API-PRODUCT`
---
-ALTER TABLE `API-PRODUCT`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `API-USER`
---
-ALTER TABLE `API-USER`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
